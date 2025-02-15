@@ -1,9 +1,18 @@
 import React from 'react'
+import { Hero } from './components/Hero'
+import { Filters } from './components/Filters'
+import { PropertyList } from './components/PropertyList'
+import { PropertiesProvider } from './context/PropertiesProvider'
 
 export const PropertiesApp = () => {
     return (
-        <>
-            <h1 className='font-outfit'>PropertiesApp</h1>
-        </>
+        <div className='bg-primary'>
+            <PropertiesProvider>
+                <Hero />
+                <Filters />
+                <PropertyList />
+            </PropertiesProvider>
+
+        </div>
     )
 }
