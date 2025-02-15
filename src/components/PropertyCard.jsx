@@ -2,9 +2,9 @@ import React from 'react'
 
 export const PropertyCard = ({ item }) => {
     return (
-        <div className='text-white w-[358px] font-outfit'>
+        <div className='text-white w-[358px] 2xl:w-[398px] font-outfit'>
             <div className='relative'>
-                <img className='rounded-tr-2xl rounded-tl-2xl w-[358px]' src={item.image} />
+                <img className='rounded-tr-2xl rounded-tl-2xl 2xl:w-[398px] ' src={item.image} />
                 {
                     item.superhost && <span className='absolute top-2 left-2 bg-primary flex px-2 py-1 rounded-2xl text-xs gap-1'>SuperHost <img width={15} src={'/Starfill.svg'} alt='star' /></span>
                 }
