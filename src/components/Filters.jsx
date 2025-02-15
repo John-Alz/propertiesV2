@@ -6,6 +6,7 @@ import { PropertiesContext } from '../context/PropertiesContext';
 export const Filters = () => {
 
     const [place, setPlace] = useState('All Stays')
+    const [host, setHost] = useState(true)
 
     const [state, dispatch] = useContext(PropertiesContext)
 
@@ -49,11 +50,19 @@ export const Filters = () => {
         })
     }
 
+    const onFilterHost = () => {
+        setHost(!host)
+        dispatch({
+            type: 'filter_host',
+            payload: host
+        })
+    }
+
 
     return (
-        <div className='bg-filters w-[85%] m-auto text-white rounded-2xl border-2 border-grayV1 absolute bottom-[-60px] left-0 right-0'>
-            <div className='flex justify-between w-[95%] m-auto pt-8 pb-8'>
-                <div className='flex gap-5 items-center'>
+        <div className='bg-filters w-[90%] md:w-[85%] m-auto text-white text-xs md:text-base rounded-2xl border-2 border-grayV1 absolute bottom-[-60px] left-0 right-0'>
+            <div className='flex flex-col items-center lg:flex-row lg:justify-between gap-5 w-[95%] m-auto pt-8 pb-8'>
+                <div className='flex  md:gap-5 items-center'>
                     {
                         countries.map((country) => (
                             <button onClick={() => onFilterLocation(country.name)} key={country.id} className={`${place === country.name ? 'bg-btn-active 0' : null}py-1 px-3 rounded-lg cursor-pointer`}>{country.name}</button>
@@ -61,7 +70,11 @@ export const Filters = () => {
                     }
                 </div>
                 <div className='flex items-center gap-5'>
-                    <p>SuperHost</p>
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" value="superHost" class="sr-only peer" />
+                        <div onClick={onFilterHost} class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600 dark:peer-checked:bg-toggle"></div>
+                        <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">SuperHost</span>
+                    </label>
                     <div className=' '>
                         <select className='cursor-pointer border-2 rounded-2xl border-grayV1 bg-filters px-6 py-3' onChange={onFilterRoom}>
 
