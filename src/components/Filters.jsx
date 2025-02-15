@@ -62,7 +62,7 @@ export const Filters = () => {
     return (
         <div className='bg-filters w-[95%] md:w-[85%] m-auto translate-y-[-50%] text-white text-xs md:text-base rounded-2xl border-2 border-grayV1 left-0 right-0'>
             <div className='flex flex-col items-center lg:flex-row lg:justify-between gap-5 w-[95%] m-auto pt-8 pb-8'>
-                <div className='flex md:gap-5 items-center'>
+                <div className='flex  md:gap-5 items-center'>
                     {
                         countries.map((country) => (
                             <button onClick={() => onFilterLocation(country.name)} key={country.id} className={`${place === country.name ? 'bg-btn-active 0' : null}py-1 px-3 rounded-lg cursor-pointer`}>{country.name}</button>

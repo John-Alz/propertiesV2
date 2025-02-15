@@ -1,17 +1,18 @@
 export const propertiesReducer = (state, action) => {
 
     console.log(action.payload);
+    console.log(action.state);
 
 
     switch (action.type) {
         case 'set_properties':
-            return { ...state, properties: action.payload, filteredProperties: action.payload }
+            return { ...state, properties: action.payload }
         case 'filter_location':
-            return { ...state, filteredProperties: action.payload == 'All Stays' ? state.properties : state.properties.filter(item => item.location === action.payload) }
+            return { ...state, filteredByCountry: action.payload }
         case 'filter_rooms':
-            return { ...state, filteredProperties: action.payload == 'All' ? state.properties : state.properties.filter(item => item.capacity.bedroom == action.payload) }
+            return { ...state, filteredByBedrooms: action.payload }
         case 'filter_host':
-            return { ...state, filteredProperties: action.payload === false ? state.properties : state.properties.filter(item => item.superhost === action.payload) }
+            return { ...state, filteredByHost: action.payload }
         default:
             return state;
     }
