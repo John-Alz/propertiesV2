@@ -32,63 +32,42 @@ export const Filters = () => {
         },
     ];
 
-    const onFilter = (location) => {
+    const onFilterLocation = (location) => {
         setPlace(location)
-        console.log(place);
+        dispatch({
+            type: 'filter_location',
+            payload: location
+        });
+    }
 
-        switch (location) {
-            case 'All Stays':
-                dispatch({
-                    type: 'reset_filters'
-                });
-                break;
-            case 'Norway':
-                dispatch({
-                    type: 'filter_location',
-                    payload: location
-                });
-                break;
-            case 'Finland':
-                dispatch({
-                    type: 'filter_location',
-                    payload: location
-                });
-                break;
-            case 'Sweden':
-                dispatch({
-                    type: 'filter_location',
-                    payload: location
-                });
-                break;
-            case 'Switzerland':
-                dispatch({
-                    type: 'filter_location',
-                    payload: location
-                });
-                break;
-
-            default:
-                throw new Error('No coincide el filtro')
-                break;
-        }
+    const onFilterRoom = (e) => {
+        e.preventDefault();
+        const numsRooms = e.target.value
+        dispatch({
+            type: 'filter_rooms',
+            payload: numsRooms
+        })
     }
 
 
     return (
-        <div className='bg-filters w-[90%] m-auto text-white rounded-2xl border-2 border-grayV1 absolute bottom-[-60px] left-0 right-0'>
+        <div className='bg-filters w-[85%] m-auto text-white rounded-2xl border-2 border-grayV1 absolute bottom-[-60px] left-0 right-0'>
             <div className='flex justify-between w-[95%] m-auto pt-8 pb-8'>
                 <div className='flex gap-5 items-center'>
                     {
                         countries.map((country) => (
-                            <button onClick={() => onFilter(country.name)} key={country.id} className={`${place === country.name ? 'bg-btn-active 0' : null}py-1 px-3 rounded-lg cursor-pointer`}>{country.name}</button>
+                            <button onClick={() => onFilterLocation(country.name)} key={country.id} className={`${place === country.name ? 'bg-btn-active 0' : null}py-1 px-3 rounded-lg cursor-pointer`}>{country.name}</button>
                         ))
                     }
                 </div>
                 <div className='flex items-center gap-5'>
                     <p>SuperHost</p>
-                    <div className='px-6 py-3 border-2 rounded-2xl border-grayV1'>
-                        <select className='cursor-pointer'>
-                            <option>Property type</option>
+                    <div className=' '>
+                        <select className='cursor-pointer border-2 rounded-2xl border-grayV1 bg-filters px-6 py-3' onChange={onFilterRoom}>
+
+                            <option value='all' className='text-white'>Property type</option>
+                            <option value="1" className='text-white cursor-pointer'>1 Bedroom</option>
+                            <option value="2" className='text-white cursor-pointer'>2 Bedroom</option>
                         </select>
                     </div>
 
