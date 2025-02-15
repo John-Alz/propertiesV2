@@ -1,9 +1,13 @@
 import React from 'react'
+import { useContext } from 'react';
 import { useState } from 'react';
+import { PropertiesContext } from '../context/PropertiesContext';
 
 export const Filters = () => {
 
     const [place, setPlace] = useState('All Stays')
+
+    const [state, dispatch] = useContext(PropertiesContext)
 
     const countries = [
         {
@@ -16,7 +20,7 @@ export const Filters = () => {
         },
         {
             id: 3,
-            name: 'Filand',
+            name: 'Finland',
         },
         {
             id: 4,
@@ -31,6 +35,42 @@ export const Filters = () => {
     const onFilter = (location) => {
         setPlace(location)
         console.log(place);
+
+        switch (location) {
+            case 'All Stays':
+                dispatch({
+                    type: 'reset_filters'
+                });
+                break;
+            case 'Norway':
+                dispatch({
+                    type: 'filter_location',
+                    payload: location
+                });
+                break;
+            case 'Finland':
+                dispatch({
+                    type: 'filter_location',
+                    payload: location
+                });
+                break;
+            case 'Sweden':
+                dispatch({
+                    type: 'filter_location',
+                    payload: location
+                });
+                break;
+            case 'Switzerland':
+                dispatch({
+                    type: 'filter_location',
+                    payload: location
+                });
+                break;
+
+            default:
+                throw new Error('No coincide el filtro')
+                break;
+        }
     }
 
 

@@ -4,7 +4,8 @@ import { propertiesReducer } from '../reducers/propertiesReducer'
 import { useReducer } from 'react'
 
 const initialState = {
-    properties: []
+    properties: [],
+    filteredProperties: []
 }
 
 export const PropertiesProvider = ({ children }) => {

@@ -11,7 +11,6 @@ export const PropertyList = () => {
 
     const [state, dispatch] = useContext(PropertiesContext)
 
-
     useFetch("https://raw.githubusercontent.com/devchallenges-io/curriculum/refs/heads/main/4-frontend-libaries/challenges/group_1/data/property-listing-data.json", dispatch)
 
 
@@ -20,7 +19,9 @@ export const PropertyList = () => {
             <h2 className='text-white text-3xl font-semibold pt-12 pb-10'>Over 200 stays</h2>
             <div className='grid grid-cols-3'>
                 {
-                    state.properties.map(item => (
+                    state.filteredProperties.length > 0 ? state.filteredProperties.map(item => (
+                        <PropertyCard key={item.id} item={item} />
+                    )) : state.properties.map(item => (
                         <PropertyCard key={item.id} item={item} />
                     ))
                 }
