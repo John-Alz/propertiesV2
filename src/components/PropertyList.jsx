@@ -10,12 +10,9 @@ import { PropertiesContext } from '../context/PropertiesContext';
 export const PropertyList = () => {
 
     const [state, dispatch] = useContext(PropertiesContext)
-    console.log(state.filteredProperties);
 
 
     useFetch("https://raw.githubusercontent.com/devchallenges-io/curriculum/refs/heads/main/4-frontend-libaries/challenges/group_1/data/property-listing-data.json", dispatch)
-
-
 
     const filteredProperties = state.properties.filter((item) => {
         return (
@@ -24,6 +21,9 @@ export const PropertyList = () => {
             (state.filteredByHost === null || item.superhost === state.filteredByHost)
         )
     })
+
+    console.log(filteredProperties);
+
 
     return (
         <div className='w-[85%] m-auto pb-12'>
