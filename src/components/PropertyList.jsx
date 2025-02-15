@@ -18,7 +18,7 @@ export const PropertyList = () => {
         return (
             (state.filteredByCountry === "All Stays" || item.location === state.filteredByCountry) &&
             (state.filteredByBedrooms === "All" || item.capacity.bedroom == state.filteredByBedrooms) &&
-            (state.filteredByHost === null || item.superhost === state.filteredByHost)
+            (state.filteredByHost === null || state.filteredByHost === true ? item.superhost === true : item.superhost === false)
         )
     })
 

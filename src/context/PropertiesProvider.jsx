@@ -7,7 +7,7 @@ const initialState = {
     properties: [],
     filteredByCountry: "All Stays",
     filteredByBedrooms: "All",
-    filteredByHost: null,
+    filteredByHost: true,
 }
 
 export const PropertiesProvider = ({ children }) => {
