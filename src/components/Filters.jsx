@@ -60,7 +60,7 @@ export const Filters = () => {
 
 
     return (
-        <div className='bg-filters w-[90%] md:w-[85%] m-auto text-white text-xs md:text-base rounded-2xl border-2 border-grayV1 absolute bottom-[-60px] left-0 right-0'>
+        <div className='bg-filters w-[90%] md:w-[85%] m-auto text-white text-xs md:text-base rounded-2xl border-2 border-grayV1 absolute bottom-[300px] left-0 right-0'>
             <div className='flex flex-col items-center lg:flex-row lg:justify-between gap-5 w-[95%] m-auto pt-8 pb-8'>
                 <div className='flex  md:gap-5 items-center'>
                     {
