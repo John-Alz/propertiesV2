@@ -78,7 +78,7 @@ export const Filters = () => {
                     <div className=' '>
                         <select className='cursor-pointer border-2 rounded-2xl border-grayV1 bg-filters px-6 py-3' onChange={onFilterRoom}>
 
-                            <option value='all' className='text-white'>Property type</option>
+                            <option value="All" className='text-white'>Property type</option>
                             <option value="1" className='text-white cursor-pointer'>1 Bedroom</option>
                             <option value="2" className='text-white cursor-pointer'>2 Bedroom</option>
                         </select>

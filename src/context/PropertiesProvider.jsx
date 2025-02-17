@@ -5,9 +5,10 @@ import { useReducer } from 'react'
 
 const initialState = {
     properties: [],
+    filteredProperties: [],
     filteredByCountry: "All Stays",
     filteredByBedrooms: "All",
-    filteredByHost: true,
+    filteredByHost: false,
 }
 
 export const PropertiesProvider = ({ children }) => {

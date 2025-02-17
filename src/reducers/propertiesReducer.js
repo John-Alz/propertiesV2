@@ -1,12 +1,11 @@
 export const propertiesReducer = (state, action) => {
 
     console.log(action.payload);
-    console.log(action.state);
 
 
     switch (action.type) {
         case 'set_properties':
-            return { ...state, properties: action.payload }
+            return { ...state, properties: action.payload, filteredProperties: action.payload }
         case 'filter_location':
             return { ...state, filteredByCountry: action.payload }
         case 'filter_rooms':
